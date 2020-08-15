@@ -6,10 +6,9 @@ pollutantmean<-function(directory,pollutant,id=1:332){
       PollutantData=rbind(PollutantData,CurrRead)
 
             }
-  print(unique(PollutantData$ID))
   mean(get(pollutant,PollutantData),na.rm=TRUE)
 }
 
 pollutid<-c(2,40,124,325,155)
-data<-pollutantmean(getwd(),"sulfate",pollutid)
+data<-pollutantmean(getwd(),"nitrate",23)
 data
