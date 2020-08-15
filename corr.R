@@ -4,9 +4,9 @@ corr<-function(directory,threshold=0){
    currReadCor<-as.numeric(currReadCor)
   
    filelist<-list.files(directory)
-   id<-sprintf("%03d",id)
-   for(fileIndex in seq_along(id)){
-    fname<-paste0(directory,"/",id[fileIndex],".csv")
+
+   for(fileIndex in seq_along(filelist)){
+    fname<-paste0(directory,"/",filelist[fileIndex],".csv")
     currRead<-read.csv(fname,header=TRUE)
     currRead<-na.omit(currRead)
     if(dim(currRead)[1]>threshold){
@@ -20,4 +20,5 @@ corr<-function(directory,threshold=0){
    currReadCor
 }
 getwd()
-cor(getwd(),400)
+cr <- corr("specdata", 150)
+head(cr)
